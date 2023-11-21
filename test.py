@@ -2,7 +2,9 @@ import unittest
 
 from solutions.year2015.day1 import calculate
 
+
 class TestSum(unittest.TestCase):
+
     def test_year2015_day1_input1(self):
         """
         Compare test input to provided true answer
@@ -74,6 +76,7 @@ class TestSum(unittest.TestCase):
         testData = ')())())'
         result = calculate(testData)
         self.assertEqual(result, '-3')
+
 
 if __name__ == '__main__':
     unittest.main()
