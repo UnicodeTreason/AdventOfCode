@@ -11,7 +11,7 @@ class TestSum(unittest.TestCase):
         """
         testData = '(())'
         result = calculate(testData)
-        self.assertEqual(result, '0')
+        self.assertEqual(result, 0)
 
     def test_year2015_day1_input2(self):
         """
@@ -19,7 +19,7 @@ class TestSum(unittest.TestCase):
         """
         testData = '()()'
         result = calculate(testData)
-        self.assertEqual(result, '0')
+        self.assertEqual(result, 0)
 
     def test_year2015_day1_input3(self):
         """
@@ -27,7 +27,7 @@ class TestSum(unittest.TestCase):
         """
         testData = '((('
         result = calculate(testData)
-        self.assertEqual(result, '3')
+        self.assertEqual(result, 3)
 
     def test_year2015_day1_input4(self):
         """
@@ -35,7 +35,7 @@ class TestSum(unittest.TestCase):
         """
         testData = '(()(()('
         result = calculate(testData)
-        self.assertEqual(result, '3')
+        self.assertEqual(result, 3)
 
     def test_year2015_day1_input5(self):
         """
@@ -43,7 +43,7 @@ class TestSum(unittest.TestCase):
         """
         testData = '))((((('
         result = calculate(testData)
-        self.assertEqual(result, '3')
+        self.assertEqual(result, 3)
 
     def test_year2015_day1_input6(self):
         """
@@ -51,7 +51,7 @@ class TestSum(unittest.TestCase):
         """
         testData = '())'
         result = calculate(testData)
-        self.assertEqual(result, '-1')
+        self.assertEqual(result, -1)
 
     def test_year2015_day1_input7(self):
         """
@@ -59,7 +59,7 @@ class TestSum(unittest.TestCase):
         """
         testData = '))('
         result = calculate(testData)
-        self.assertEqual(result, '-1')
+        self.assertEqual(result, -1)
 
     def test_year2015_day1_input8(self):
         """
@@ -67,7 +67,7 @@ class TestSum(unittest.TestCase):
         """
         testData = ')))'
         result = calculate(testData)
-        self.assertEqual(result, '-3')
+        self.assertEqual(result, -3)
 
     def test_year2015_day1_input9(self):
         """
@@ -75,7 +75,7 @@ class TestSum(unittest.TestCase):
         """
         testData = ')())())'
         result = calculate(testData)
-        self.assertEqual(result, '-3')
+        self.assertEqual(result, -3)
 
 
 if __name__ == '__main__':
