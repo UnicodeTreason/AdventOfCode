@@ -38,7 +38,9 @@ def calculate(inputData: dict, magic: bool = False) -> int:
         # Part 2 Switch
         # Calculate ribbon length
         if magic:
-            pass
+            # Package volume in cubic feet
+            packageVolume = packageMeasurements[0] * packageMeasurements[1] * packageMeasurements[2]
+            return packageVolume
 
         # Find total total square footage
         # Each face exists twice so *2 required
