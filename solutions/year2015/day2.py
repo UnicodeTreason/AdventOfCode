@@ -1,29 +1,52 @@
 from pathlib import Path
 
 
-def calculate(inputData, magic=False):
-    # Input: lxwxh
-    # 2*l*w + 2*w*h + 2*h*l
-    # 2*6 + 2*12 + 2*8 = 52
-    outputPaper = 0
+def calculate(inputData: dict, magic: bool = False) -> int:
+    """Calculate square footage of wrapping paper for a package using formula "2*l*w + 2*w*h + 2*h*l"
+
+    Parameters
+    ----------
+    inputData : dict
+        The dict of packages
+            20x3x11
+             LxWxH
+    magic : bool, optional
+        A flag used to print the Part 2 output
+
+    Returns
+    -------
+    int
+        magic: False
+            The final square footage required for all input packages
+        magic: True
+            The length of ribbon required for all input packages
+    """
+    output = 0
 
     for package in inputData:
-        # Split input into ints
+        # Split input str into ints
         packageMeasurements = [int(x) for x in package.split("x")]
 
-        # Math time
-        packageLW = 2 * packageMeasurements[0] * packageMeasurements[1]
-        packageWH = 2 * packageMeasurements[1] * packageMeasurements[2]
-        packageHL = 2 * packageMeasurements[2] * packageMeasurements[0]
+        # Perform calculation of formula to get face dimensions
+        packageFaceLW = packageMeasurements[0] * packageMeasurements[1]
+        packageFaceWH = packageMeasurements[1] * packageMeasurements[2]
+        packageFaceHL = packageMeasurements[2] * packageMeasurements[0]
 
-        # Bit of logic
-        packageSmallestSide = min(packageLW, packageWH, packageHL)
-        packageSum = packageLW + packageWH + packageHL
+        # Find smallest face
+        packageFaceSmallest = min(packageFaceLW, packageFaceWH, packageFaceHL)
+
+        # Part 2 Switch
+        # Calculate ribbon length
+        if magic:
+            pass
+
+        # Find total total square footage
+        # Each face exists twice so *2 required
+        packageSum = packageFaceLW*2 + packageFaceWH*2 + packageFaceHL*2
 
         # Add it to the pile
-        outputPaper += packageSum + int((packageSmallestSide / 2))
-
-    return outputPaper
+        output += packageSum + int(packageFaceSmallest)
+    return output
 
 
 if __name__ == "__main__":

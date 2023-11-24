@@ -1,24 +1,42 @@
 from pathlib import Path
 
 
-def calculate(inputData, magic=False):
-    # ( means go up a floor
-    # ) means go down a floor
-    outputFloor = 0
+def calculate(inputData: str, magic: bool = False) -> int:
+    """Calculate desired floor from input map
+
+    Parameters
+    ----------
+    inputData : str
+        The string of characters acting as a map of staircase instructions
+            ( = Up a floor
+            ) = Down a floor
+    magic : bool, optional
+        A flag used to print the Part 2 output
+
+    Returns
+    -------
+    int
+        magic: False
+            The final floor
+        magic: True
+            The position of the instruction when the basement is seen for the first time
+    """
+    output = 0
 
     for index, char in enumerate(inputData):
+        # Perform the calculation
         if char == '(':
-            outputFloor += 1
+            output += 1
         elif char == ')':
-            outputFloor -= 1
+            output -= 1
 
         # Part 2 Switch
         # Calculate position in data when basement first seen
         if magic:
-            if outputFloor <= -1:
+            if output <= -1:
                 # Add 1 to account for arrays starting at 0
                 return index + 1
-    return outputFloor
+    return output
 
 
 if __name__ == "__main__":
