@@ -21,7 +21,8 @@ def calculate(inputData: dict, magic: bool = False) -> int:
         magic: True
             The length of ribbon required for all input packages
     """
-    output = 0
+    outputPackageWrap = 0
+    outputPackageRibbon = 0
 
     for package in inputData:
         # Split input str into ints
@@ -40,15 +41,27 @@ def calculate(inputData: dict, magic: bool = False) -> int:
         if magic:
             # Package volume in cubic feet
             packageVolume = packageMeasurements[0] * packageMeasurements[1] * packageMeasurements[2]
-            return packageVolume
+
+            # Strip largest of the sides
+            packageMeasurements.remove(max(packageMeasurements))
+
+            # Calculate ribbon length for remaining smallest route
+            packageCircumference = (packageMeasurements[0] * 2) + (packageMeasurements[1] * 2)
+            outputPackageRibbon += packageCircumference + packageVolume
 
         # Find total total square footage
         # Each face exists twice so *2 required
-        packageSum = packageFaceLW*2 + packageFaceWH*2 + packageFaceHL*2
+        packageSum = packageFaceLW * 2 + packageFaceWH * 2 + packageFaceHL * 2
 
         # Add it to the pile
-        output += packageSum + int(packageFaceSmallest)
-    return output
+        outputPackageWrap += packageSum + int(packageFaceSmallest)
+
+    # Part 2 Switch
+    # Calculate ribbon length
+    if magic:
+        return outputPackageRibbon
+    else:
+        return outputPackageWrap
 
 
 if __name__ == "__main__":

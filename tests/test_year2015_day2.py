@@ -45,6 +45,14 @@ class TestSum(unittest.TestCase):
         result = calculate(testData, True)
         self.assertEqual(result, 14)
 
+    def test_year2015_day2_input6(self):
+        """
+        Compare test input to provided true answer
+        """
+        testData = ['2x3x4', '1x1x10']
+        result = calculate(testData, True)
+        self.assertEqual(result, 48)
+
 
 if __name__ == '__main__':
     unittest.main()
