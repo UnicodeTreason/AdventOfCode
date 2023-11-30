@@ -18,30 +18,52 @@ def calculate(inputData: str, magic: bool = False) -> int:
         magic: False
             The count of houses with >= 1 present
         magic: True
-            The something
+            The count of houses with >= 1 present after being visited by both Santas
     """
     outputHousesDelivered = ['[0, 0]']
-    calculatedLocation = [0,0]
+    locationSanta = [0, 0]
+    locationZanta = [0, 0]
+    turnTracker = 'S'
 
     for move in inputData:
         # Calculate Move and outcome
         if move == '>':
-            calculatedLocation[1] += 1
+            if turnTracker == 'S':
+                locationSanta[1] += 1
+            elif turnTracker == 'Z':
+                locationZanta[1] += 1
         elif move == '<':
-            calculatedLocation[1] -= 1
+            if turnTracker == 'S':
+                locationSanta[1] -= 1
+            elif turnTracker == 'Z':
+                locationZanta[1] -= 1
         elif move == '^':
-            calculatedLocation[0] += 1
+            if turnTracker == 'S':
+                locationSanta[0] += 1
+            elif turnTracker == 'Z':
+                locationZanta[0] += 1
         elif move == 'v':
-            calculatedLocation[0] -= 1
+            if turnTracker == 'S':
+                locationSanta[0] -= 1
+            elif turnTracker == 'Z':
+                locationZanta[0] -= 1
 
         # Track visited locations
-        if f'{calculatedLocation}' not in outputHousesDelivered:
-            outputHousesDelivered.append(f'{calculatedLocation}')
+        if turnTracker == 'S':
+            if f'{locationSanta}' not in outputHousesDelivered:
+                outputHousesDelivered.append(f'{locationSanta}')
+        elif turnTracker == 'Z':
+            if f'{locationZanta}' not in outputHousesDelivered:
+                outputHousesDelivered.append(f'{locationZanta}')
 
         # Part 2 Switch
-        # Calculate
+        # Flip/Flop the turn tracker
         if magic:
-            pass
+            if turnTracker == 'S':
+                turnTracker = 'Z'
+            elif turnTracker == 'Z':
+                turnTracker = 'S'
+
 
     return len(outputHousesDelivered)
 
