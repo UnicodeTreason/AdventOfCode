@@ -21,5 +21,13 @@ class TestSum(unittest.TestCase):
         result = calculate(testData)
         self.assertEqual(result, 1048970)
 
+    def test_year2015_day4_input3(self):
+        """
+        Compare test input to provided true answer
+        """
+        testData = 'yzbqklnj'
+        result = calculate(testData, True)
+        self.assertEqual(result, 9962624)
+
 if __name__ == '__main__':
     unittest.main()

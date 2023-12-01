@@ -29,14 +29,17 @@ def calculate(inputData: str, magic: bool = False) -> int:
         # Munge secret key and current number together
         hashKey = str(inputData) + str(outputMineNumber)
         hashMD5 = hashlib.md5(hashKey.encode('utf-8')).hexdigest()
-        if re.match(r'0{5}.+',hashMD5):
+
+        # Part 2 Switch
+        if magic:
+            regexCount = '0{6}.+'
+        else:
+            regexCount = '0{5}.+'
+
+        if re.match(regexCount,hashMD5):
             hashValid = True
         else:
             outputMineNumber += 1
-
-    # Part 2 Switch
-    if magic:
-        pass
 
     return outputMineNumber
 
