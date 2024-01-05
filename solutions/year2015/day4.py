@@ -36,7 +36,7 @@ def calculate(inputData: str, magic: bool = False) -> int:
         else:
             regexCount = '0{5}.+'
 
-        if re.match(regexCount,hashMD5):
+        if re.match(regexCount, hashMD5):
             hashValid = True
         else:
             outputMineNumber += 1
@@ -45,8 +45,8 @@ def calculate(inputData: str, magic: bool = False) -> int:
 
 
 if __name__ == "__main__":
-    p = Path(__file__).with_name('day4_input.txt')
-    with p.open('r') as f:
+    path_inputs = Path(__file__).parent / 'inputs' / 'day4_input.txt'
+    with path_inputs.open('r') as f:
         inputData = f.read()
 
     print('Calculating Solutions...')

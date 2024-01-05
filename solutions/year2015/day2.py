@@ -65,8 +65,8 @@ def calculate(inputData: dict, magic: bool = False) -> int:
 
 
 if __name__ == "__main__":
-    p = Path(__file__).with_name('day2_input.txt')
-    with p.open('r') as f:
+    path_inputs = Path(__file__).parent / 'inputs' / 'day2_input.txt'
+    with path_inputs.open('r') as f:
         inputData = f.read().splitlines()
 
     print('Calculating Solutions...')
