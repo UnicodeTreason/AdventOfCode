@@ -29,5 +29,6 @@ class TestSum(unittest.TestCase):
         result = calculate(testData, True)
         self.assertEqual(result, 9962624)
 
+
 if __name__ == '__main__':
     unittest.main()

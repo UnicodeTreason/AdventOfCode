@@ -1,13 +1,13 @@
 from pathlib import Path
 
 
-def calculate(inputData: dict, magic: bool = False) -> int:
+def calculate(inputData: list, magic: bool = False) -> int:
     """Calculate square footage of wrapping paper for a package using formula "2*l*w + 2*w*h + 2*h*l"
 
     Parameters
     ----------
-    inputData : dict
-        The dict of packages
+    inputData : list
+        The list of packages
             20x3x11
              LxWxH
     magic : bool, optional

@@ -18,9 +18,9 @@ def calculate(inputData: str, magic: bool = False) -> int:
     -------
     int
         magic: False
-            The lowest number that combines with the secret key to produce output
+            The lowest number that combines with the secret key to produce output starting with 5 zeroes
         magic: True
-            The
+            The lowest number that combines with the secret key to produce output starting with 6 zeroes
     """
     outputMineNumber = 0
     hashValid = False
