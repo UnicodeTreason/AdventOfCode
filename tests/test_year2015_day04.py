@@ -1,11 +1,11 @@
 import unittest
 
-from solutions.year2015.day4 import calculate
+from solutions.year2015.day04 import calculate
 
 
 class TestSum(unittest.TestCase):
 
-    def test_year2015_day4_input01(self):
+    def test_year2015_day04_input01(self):
         """
         Compare test input to provided true answer
         """
@@ -13,7 +13,7 @@ class TestSum(unittest.TestCase):
         result = calculate(testData)
         self.assertEqual(result, 609043)
 
-    def test_year2015_day4_input02(self):
+    def test_year2015_day04_input02(self):
         """
         Compare test input to provided true answer
         """
@@ -21,7 +21,7 @@ class TestSum(unittest.TestCase):
         result = calculate(testData)
         self.assertEqual(result, 1048970)
 
-    def test_year2015_day4_input03(self):
+    def test_year2015_day04_input03(self):
         """
         Compare test input to provided true answer
         """

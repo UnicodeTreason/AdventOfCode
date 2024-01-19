@@ -68,7 +68,7 @@ def calculate(inputData: str, magic: bool = False) -> int:
 
 
 if __name__ == "__main__":
-    path_inputs = Path(__file__).parent / 'inputs' / 'day3_input.txt'
+    path_inputs = Path(__file__).parent / 'inputs' / f'{Path(__file__).stem}_input.txt'
     with path_inputs.open('r') as f:
         inputData = f.read()
 

@@ -1,57 +1,57 @@
 import unittest
 
-from solutions.year2015.day2 import calculate
+from solutions.year2015.day03 import calculate
 
 
 class TestSum(unittest.TestCase):
 
-    def test_year2015_day2_input01(self):
+    def test_year2015_day03_input01(self):
         """
         Compare test input to provided true answer
         """
-        testData = ['2x3x4']
+        testData = '>'
         result = calculate(testData)
-        self.assertEqual(result, 58)
+        self.assertEqual(result, 2)
 
-    def test_year2015_day2_input02(self):
+    def test_year2015_day03_input02(self):
         """
         Compare test input to provided true answer
         """
-        testData = ['1x1x10']
+        testData = '^>v<'
         result = calculate(testData)
-        self.assertEqual(result, 43)
+        self.assertEqual(result, 4)
 
-    def test_year2015_day2_input03(self):
+    def test_year2015_day03_input03(self):
         """
         Compare test input to provided true answer
         """
-        testData = ['2x3x4', '1x1x10']
+        testData = '^v^v^v^v^v'
         result = calculate(testData)
-        self.assertEqual(result, 101)
+        self.assertEqual(result, 2)
 
-    def test_year2015_day2_input04(self):
+    def test_year2015_day03_input04(self):
         """
         Compare test input to provided true answer
         """
-        testData = ['2x3x4']
+        testData = '^v'
         result = calculate(testData, True)
-        self.assertEqual(result, 34)
+        self.assertEqual(result, 3)
 
-    def test_year2015_day2_input05(self):
+    def test_year2015_day03_input05(self):
         """
         Compare test input to provided true answer
         """
-        testData = ['1x1x10']
+        testData = '^>v<'
         result = calculate(testData, True)
-        self.assertEqual(result, 14)
+        self.assertEqual(result, 3)
 
-    def test_year2015_day2_input06(self):
+    def test_year2015_day03_input06(self):
         """
         Compare test input to provided true answer
         """
-        testData = ['2x3x4', '1x1x10']
+        testData = '^v^v^v^v^v'
         result = calculate(testData, True)
-        self.assertEqual(result, 48)
+        self.assertEqual(result, 11)
 
 
 if __name__ == '__main__':

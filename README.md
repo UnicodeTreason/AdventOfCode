@@ -22,7 +22,7 @@ python3 -m unittest discover -s tests/
 Run a specific test
 
 ```shell
-python3 -m unittest tests/test_year2015_day1.py
+python3 -m unittest tests/test_year2015_day01.py
 ```
 
 ### Live Run
@@ -30,5 +30,5 @@ python3 -m unittest tests/test_year2015_day1.py
 Run module
 
 ```shell
-python3 ./solutions/year2015/day1.py
+python3 ./solutions/year2015/day01.py
 ```
