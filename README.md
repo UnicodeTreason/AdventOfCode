@@ -11,24 +11,52 @@ I rarely use classes because I try to embody ["Simple is better than complex"](h
 
 ## Usage
 
+### Using venv
+
+```shell
+python3 -m venv ./venv_adventofcode
+```
+
+```shell
+source ./venv_adventofcode/bin/activate
+```
+
+### Installing Advent of Code Requirements
+
+```shell
+pip install -r requirements.txt
+```
+
 ### Testing
 
 Run all tests
 
 ```shell
+pytest
+```
+
+Run all unittest tests
+
+```shell
 python3 -m unittest discover -s tests/
 ```
 
-Run a specific test
+Run a specific unittest test
 
 ```shell
 python3 -m unittest tests/year2015/test_day01.py
 ```
 
-### Live Run
+### Running
 
 Run module
 
 ```shell
-python3 /solutions/year2015/day01.py
+python3 -m adventofcode
+```
+
+Run app.py
+
+```shell
+python3 ./adventofcode/year2015/day01.py
 ```

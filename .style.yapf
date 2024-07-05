@@ -7,11 +7,3 @@ COLUMN_LIMIT=180
 
 # The number of columns to use for indentation.
 INDENT_WIDTH=4
-
-# Ensure brackets line up nicely
-ALIGN_CLOSING_BRACKET_WITH_VISUAL_INDENT=True
-DEDENT_CLOSING_BRACKETS=True
-
-# Ensure dict's are readable
-EACH_DICT_ENTRY_ON_SEPARATE_LINE=True
-FORCE_MULTILINE_DICT=True

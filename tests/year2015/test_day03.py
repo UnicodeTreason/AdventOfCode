@@ -1,6 +1,6 @@
 import unittest
 
-from solutions.year2015.day03 import calculate
+from adventofcode.year2015.day03 import calculate
 
 
 class TestSum(unittest.TestCase):
