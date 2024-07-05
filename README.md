@@ -29,6 +29,8 @@ pip install -r requirements.txt
 
 ### Testing
 
+![Tests](https://github.com/UnicodeTreason/AdventOfCode/blob/main/.github/workflows/tests.yml/badge.svg)
+
 Run all tests
 
 ```shell
