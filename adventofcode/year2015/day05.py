@@ -7,10 +7,10 @@ def calculate(inputData: list, magic: bool = False) -> int:
 
     Parameters
     ----------
-    inputData : list
+    inputData: list
         The list of all strings to check
             ugknbfddgicrmopn
-    magic : bool, optional
+    magic: bool, optional
         A flag used to print the Part 2 output
 
     Returns
@@ -27,28 +27,13 @@ def calculate(inputData: list, magic: bool = False) -> int:
     if magic:
         # Check for Nice
         # >= 1 pair of letters
-        niceChecks = [{
-            'name': 'LetterPairs',
-            'regex': r'([a-z][a-z]).*\1'
-        }, {
-            'name': 'LetterRepeat',
-            'regex': r'([a-z]).\1'
-        }]
+        niceChecks = [{'name': 'LetterPairs', 'regex': r'([a-z][a-z]).*\1'}, {'name': 'LetterRepeat', 'regex': r'([a-z]).\1'}]
     else:
         # Check for Nice
         # >= 3 Vowels
         # >= 1 pair of letters
         # not contain ab, cd, pq, xy
-        niceChecks = [{
-            'name': 'Vowels',
-            'regex': r'([aeiou].*){3,}'
-        }, {
-            'name': 'LetterPairs',
-            'regex': r'([a-z])\1'
-        }, {
-            'name': 'BannedStrings',
-            'regex': r'(ab|cd|pq|xy)'
-        }]
+        niceChecks = [{'name': 'Vowels', 'regex': r'([aeiou].*){3,}'}, {'name': 'LetterPairs', 'regex': r'([a-z])\1'}, {'name': 'BannedStrings', 'regex': r'(ab|cd|pq|xy)'}]
 
     for string in inputData:
         naughty = False

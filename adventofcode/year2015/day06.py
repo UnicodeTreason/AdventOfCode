@@ -8,14 +8,14 @@ def calculate(inputData: list, magic: bool = False) -> int:
 
     Parameters
     ----------
-    inputData : list
+    inputData: list
         List of strings containing the following elements:
             powerStatus:
                 turn off
                 turn on
                 toggle
             co-ords range of lights: 0,0 through 999,999
-    magic : bool, optional
+    magic: bool, optional
         A flag used to print the Part 2 output
 
     Returns

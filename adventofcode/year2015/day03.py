@@ -2,14 +2,14 @@ from pathlib import Path
 
 
 def calculate(inputData: str, magic: bool = False) -> int:
-    """Calculate square footage of wrapping paper for a package using formula "2*l*w + 2*w*h + 2*h*l"
+    """Calculate houses that recieve atleast one present
 
     Parameters
     ----------
-    inputData : str
+    inputData: str
         The str of moves to make
             ^v^v^v^v^v
-    magic : bool, optional
+    magic: bool, optional
         A flag used to print the Part 2 output
 
     Returns

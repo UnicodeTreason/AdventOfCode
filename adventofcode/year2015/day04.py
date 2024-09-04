@@ -8,10 +8,10 @@ def calculate(inputData: str, magic: bool = False) -> int:
 
     Parameters
     ----------
-    inputData : str
+    inputData: str
         The str based secret key for mining
             abcdef
-    magic : bool, optional
+    magic: bool, optional
         A flag used to print the Part 2 output
 
     Returns

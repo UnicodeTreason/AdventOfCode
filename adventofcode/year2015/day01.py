@@ -6,11 +6,11 @@ def calculate(inputData: str, magic: bool = False) -> int:
 
     Parameters
     ----------
-    inputData : str
+    inputData: str
         The string of characters acting as a map of staircase instructions
             ( = Up a floor
             ) = Down a floor
-    magic : bool, optional
+    magic: bool, optional
         A flag used to print the Part 2 output
 
     Returns

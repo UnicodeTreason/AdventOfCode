@@ -2,12 +2,11 @@
 
 A place to store my brain solution to Advent of Code problems.
 
-I rarely use classes because I try to embody ["Simple is better than complex"](https://peps.python.org/pep-0020/)
-
 ## Solution Requirements
 
-- Accept provided logic tests for early dev sanity checks
-- Output Part 1 and Part 2
+- Perform automated testing using provided test data by examples
+- Output Part 1
+- Output Part 2 when toggle is True
 
 ## Usage
 
@@ -28,6 +27,12 @@ pip install -r requirements.txt
 ```
 
 ### Testing
+
+Ensure requirements in place
+
+```shell
+pip install -r requirements_dev.txt
+```
 
 ![Tests](https://github.com/UnicodeTreason/AdventOfCode/actions/workflows/tests.yml/badge.svg)
 
