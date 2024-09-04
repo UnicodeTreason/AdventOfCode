@@ -6,7 +6,7 @@ A place to store my brain solution to Advent of Code problems.
 
 - Perform automated testing using provided test data by examples
 - Output Part 1
-- Output Part 2 when toggle is True
+- Output Part 2 when magic toggle is True
 
 ## Usage
 
