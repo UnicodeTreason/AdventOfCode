@@ -3,12 +3,12 @@ from collections import defaultdict
 import re
 
 
-def calculate(inputData: list, magic: bool = False) -> int:
+def calculate(input_data: list, magic: bool = False) -> int:
     """Calculate 2D array of lights"
 
     Parameters
     ----------
-    inputData: list
+    input_data: list
         List of strings containing the following elements:
             powerStatus:
                 turn off
@@ -39,7 +39,7 @@ def calculate(inputData: list, magic: bool = False) -> int:
             gridLights[row][col] = 0
 
     # Perform desired commands on grid
-    for command in inputData:
+    for command in input_data:
         cmdParts = re.match(r'^(turn on|turn off|toggle) (\d+,\d+) through (\d+,\d+)$', command)
         cmdPower = cmdParts.group(1)
         cmdStartLoc = cmdParts.group(2)
@@ -84,8 +84,8 @@ def calculate(inputData: list, magic: bool = False) -> int:
 if __name__ == "__main__":
     path_inputs = Path(__file__).parent / 'inputs' / f'{Path(__file__).stem}_input.txt'
     with path_inputs.open('r') as f:
-        inputData = f.read().splitlines()
+        input_data = f.read().splitlines()
 
     print('Calculating Solutions...')
-    print(f'Solution 01: {calculate(inputData)}')
-    print(f'Solution 02: {calculate(inputData,True)}')
+    print(f'Solution 01: {calculate(input_data)}')
+    print(f'Solution 02: {calculate(input_data,True)}')

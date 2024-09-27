@@ -1,58 +1,21 @@
-import unittest
+import pytest
 
-from adventofcode.year2015.day03 import calculate
-
-
-class TestSum(unittest.TestCase):
-
-    def test_year2015_day03_input01(self):
-        """
-        Compare test input to provided true answer
-        """
-        testData = '>'
-        result = calculate(testData)
-        self.assertEqual(result, 2)
-
-    def test_year2015_day03_input02(self):
-        """
-        Compare test input to provided true answer
-        """
-        testData = '^>v<'
-        result = calculate(testData)
-        self.assertEqual(result, 4)
-
-    def test_year2015_day03_input03(self):
-        """
-        Compare test input to provided true answer
-        """
-        testData = '^v^v^v^v^v'
-        result = calculate(testData)
-        self.assertEqual(result, 2)
-
-    def test_year2015_day03_input04(self):
-        """
-        Compare test input to provided true answer
-        """
-        testData = '^v'
-        result = calculate(testData, True)
-        self.assertEqual(result, 3)
-
-    def test_year2015_day03_input05(self):
-        """
-        Compare test input to provided true answer
-        """
-        testData = '^>v<'
-        result = calculate(testData, True)
-        self.assertEqual(result, 3)
-
-    def test_year2015_day03_input06(self):
-        """
-        Compare test input to provided true answer
-        """
-        testData = '^v^v^v^v^v'
-        result = calculate(testData, True)
-        self.assertEqual(result, 11)
+from adventofcode.year2015.day03 import part_one, part_two
 
 
-if __name__ == '__main__':
-    unittest.main()
+@pytest.mark.parametrize('test_input, expected', [
+    ('>', 2),
+    ('^>v<', 4),
+    ('^v^v^v^v^v', 2),
+])
+def test_part_one(test_input, expected):
+    assert part_one(test_input) == expected
+
+
+@pytest.mark.parametrize('test_input, expected', [
+    ('^v', 3),
+    ('^>v<', 3),
+    ('^v^v^v^v^v', 11),
+])
+def test_part_two(test_input, expected):
+    assert part_two(test_input) == expected

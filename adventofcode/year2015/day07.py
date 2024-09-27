@@ -1,12 +1,12 @@
 from pathlib import Path
 
 
-def calculate(inputData: list, magic: bool = False) -> int:
+def calculate(input_data: list, magic: bool = False) -> int:
     """Calculate bitwise logic gates and wires
 
     Parameters
     ----------
-    inputData: list
+    input_data: list
         List of strings containing the following elements:
             wires:
                 label: a-z
@@ -29,7 +29,7 @@ def calculate(inputData: list, magic: bool = False) -> int:
     # Generate wires data structure
     wires = {}
     wires_solved = {}
-    for instruction in inputData:
+    for instruction in input_data:
         inputs, outputWire = instruction.split(' -> ')
         wires.update({outputWire: inputs})
 
@@ -119,8 +119,8 @@ def calculate(inputData: list, magic: bool = False) -> int:
 if __name__ == "__main__":
     path_inputs = Path(__file__).parent / 'inputs' / f'{Path(__file__).stem}_input.txt'
     with path_inputs.open('r') as f:
-        inputData = f.read().splitlines()
+        input_data = f.read().splitlines()
 
     print('Calculating Solutions...')
-    print(f'Solution 01: {calculate(inputData)}')
-    print(f'Solution 02: {calculate(inputData, True)}')
+    print(f'Solution 01: {calculate(input_data)}')
+    print(f'Solution 02: {calculate(input_data, True)}')

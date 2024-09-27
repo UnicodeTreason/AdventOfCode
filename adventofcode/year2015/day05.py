@@ -2,12 +2,12 @@ from pathlib import Path
 import re
 
 
-def calculate(inputData: list, magic: bool = False) -> int:
+def calculate(input_data: list, magic: bool = False) -> int:
     """Calculate count of nice strings"
 
     Parameters
     ----------
-    inputData: list
+    input_data: list
         The list of all strings to check
             ugknbfddgicrmopn
     magic: bool, optional
@@ -35,7 +35,7 @@ def calculate(inputData: list, magic: bool = False) -> int:
         # not contain ab, cd, pq, xy
         niceChecks = [{'name': 'Vowels', 'regex': r'([aeiou].*){3,}'}, {'name': 'LetterPairs', 'regex': r'([a-z])\1'}, {'name': 'BannedStrings', 'regex': r'(ab|cd|pq|xy)'}]
 
-    for string in inputData:
+    for string in input_data:
         naughty = False
         for check in niceChecks:
             # print(f'Match: {match}')
@@ -62,8 +62,8 @@ def calculate(inputData: list, magic: bool = False) -> int:
 if __name__ == "__main__":
     path_inputs = Path(__file__).parent / 'inputs' / f'{Path(__file__).stem}_input.txt'
     with path_inputs.open('r') as f:
-        inputData = f.read().splitlines()
+        input_data = f.read().splitlines()
 
     print('Calculating Solutions...')
-    print(f'Solution 01: {calculate(inputData)}')
-    print(f'Solution 02: {calculate(inputData,True)}')
+    print(f'Solution 01: {calculate(input_data)}')
+    print(f'Solution 02: {calculate(input_data,True)}')

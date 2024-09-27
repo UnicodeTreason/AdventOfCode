@@ -1,12 +1,17 @@
 # AdventOfCode
 
-A place to store my brain solution to Advent of Code problems.
+A place to store my solutions to Advent of Code problems.
 
 ## Solution Requirements
 
-- Perform automated testing using provided test data by examples
+- Automated testing using provided test data
 - Output Part 1
-- Output Part 2 when magic toggle is True
+- Output Part 2
+
+Future
+
+- Run entire module
+- Entire module has nice output for each year/day
 
 ## Usage
 
@@ -48,6 +53,14 @@ Run all unittest tests
 python3 -m unittest discover -s tests/
 ```
 
+Run a specific pytest test
+
+**Note: [Output flavours](https://docs.pytest.org/en/7.1.x/how-to/output.html#modifying-python-traceback-printing)**
+
+```shell
+pytest tests/year2015/test_day01.py
+```
+
 Run a specific unittest test
 
 ```shell
@@ -56,13 +69,13 @@ python3 -m unittest tests/year2015/test_day01.py
 
 ### Running
 
-Run module
+Run entire module
 
 ```shell
 python3 -m adventofcode
 ```
 
-Run app.py
+Run specific day
 
 ```shell
 python3 ./adventofcode/year2015/day01.py

@@ -3,52 +3,79 @@ import hashlib
 import re
 
 
-def calculate(inputData: str, magic: bool = False) -> int:
-    """Calculate a mined hash for AdventCoin"
+# --- Day 4: The Ideal Stocking Stuffer ---
+def part_one(input_data: str) -> int:
+    """Calculate a valid mined hash for AdventCoin
+    A mined hash is the lowest number that combines with the secret key to produce output starting with 5 zeroes
 
     Parameters
     ----------
-    inputData: str
+    input_data: str
         The str based secret key for mining
             abcdef
-    magic: bool, optional
-        A flag used to print the Part 2 output
 
     Returns
     -------
-    int
-        magic: False
-            The lowest number that combines with the secret key to produce output starting with 5 zeroes
-        magic: True
-            The lowest number that combines with the secret key to produce output starting with 6 zeroes
+    output_mine_number: int
     """
-    outputMineNumber = 0
-    hashValid = False
+    output_mine_number = 0
+    hash_valid = False
 
-    while not hashValid:
+    while not hash_valid:
         # Munge secret key and current number together
-        hashKey = str(inputData) + str(outputMineNumber)
-        hashMD5 = hashlib.md5(hashKey.encode('utf-8')).hexdigest()
+        hash_key = str(input_data) + str(output_mine_number)
+        hash_MD5 = hashlib.md5(hash_key.encode('utf-8')).hexdigest()
 
-        # Part 2 Switch
-        if magic:
-            regexCount = '0{6}.+'
+        regex_count = '0{5}.+'
+
+        if re.match(regex_count, hash_MD5):
+            hash_valid = True
         else:
-            regexCount = '0{5}.+'
+            output_mine_number += 1
 
-        if re.match(regexCount, hashMD5):
-            hashValid = True
+    return output_mine_number
+
+
+def part_two(input_data: str) -> int:
+    """Calculate a valid mined hash for AdventCoin
+    A mined hash is the lowest number that combines with the secret key to produce output starting with 6 zeroes
+
+    Parameters
+    ----------
+    input_data: str
+        The str based secret key for mining
+            abcdef
+
+    Returns
+    -------
+    output_mine_number: int
+    """
+    output_mine_number = 0
+    hash_valid = False
+
+    while not hash_valid:
+        # Munge secret key and current number together
+        hash_key = str(input_data) + str(output_mine_number)
+        hash_MD5 = hashlib.md5(hash_key.encode('utf-8')).hexdigest()
+
+        regex_count = '0{6}.+'
+
+        if re.match(regex_count, hash_MD5):
+            hash_valid = True
         else:
-            outputMineNumber += 1
+            output_mine_number += 1
 
-    return outputMineNumber
+    return output_mine_number
 
 
 if __name__ == "__main__":
+    # Read input from disk cache
     path_inputs = Path(__file__).parent / 'inputs' / f'{Path(__file__).stem}_input.txt'
+
+    # Parse input into usable format
     with path_inputs.open('r') as f:
-        inputData = f.read()
+        input_data = f.read()
 
     print('Calculating Solutions...')
-    print(f'Solution 01: {calculate(inputData)}')
-    print(f'Solution 02: {calculate(inputData,True)}')
+    print(f'Part 01: {part_one(input_data)}')
+    print(f'Part 02: {part_two(input_data)}')

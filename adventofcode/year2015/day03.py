@@ -1,77 +1,107 @@
 from pathlib import Path
 
 
-def calculate(inputData: str, magic: bool = False) -> int:
-    """Calculate houses that recieve atleast one present
+# --- Day 3: Perfectly Spherical Houses in a Vacuum ---
+def part_one(input_data: str) -> int:
+    """Calculate count houses that recieve atleast one present
 
     Parameters
     ----------
-    inputData: str
+    input_data: str
         The str of moves to make
             ^v^v^v^v^v
-    magic: bool, optional
-        A flag used to print the Part 2 output
 
     Returns
     -------
-    int
-        magic: False
-            The count of houses with >= 1 present
-        magic: True
-            The count of houses with >= 1 present after being visited by both Santas
+    len(output_houses_delivered): int
     """
-    outputHousesDelivered = ['[0, 0]']
-    locationSanta = [0, 0]
-    locationZanta = [0, 0]
-    turnTracker = 'S'
+    output_houses_delivered = ['[0, 0]']
+    location_santa = [0, 0]
 
-    for move in inputData:
-        # Calculate Move and outcome
+    # Calculate moves and outcome
+    for move in input_data:
         if move == '>':
-            if turnTracker == 'S':
-                locationSanta[1] += 1
-            elif turnTracker == 'Z':
-                locationZanta[1] += 1
+            location_santa[1] += 1
         elif move == '<':
-            if turnTracker == 'S':
-                locationSanta[1] -= 1
-            elif turnTracker == 'Z':
-                locationZanta[1] -= 1
+            location_santa[1] -= 1
         elif move == '^':
-            if turnTracker == 'S':
-                locationSanta[0] += 1
-            elif turnTracker == 'Z':
-                locationZanta[0] += 1
+            location_santa[0] += 1
         elif move == 'v':
-            if turnTracker == 'S':
-                locationSanta[0] -= 1
-            elif turnTracker == 'Z':
-                locationZanta[0] -= 1
+            location_santa[0] -= 1
 
         # Track visited locations
-        if turnTracker == 'S':
-            if f'{locationSanta}' not in outputHousesDelivered:
-                outputHousesDelivered.append(f'{locationSanta}')
-        elif turnTracker == 'Z':
-            if f'{locationZanta}' not in outputHousesDelivered:
-                outputHousesDelivered.append(f'{locationZanta}')
+        if f'{location_santa}' not in output_houses_delivered:
+            output_houses_delivered.append(f'{location_santa}')
 
-        # Part 2 Switch
-        # Flip/Flop the turn tracker
-        if magic:
-            if turnTracker == 'S':
-                turnTracker = 'Z'
-            elif turnTracker == 'Z':
-                turnTracker = 'S'
+    return len(output_houses_delivered)
 
-    return len(outputHousesDelivered)
+
+def part_two(input_data: str) -> int:
+    """Calculate count houses that recieve atleast one present
+
+    Parameters
+    ----------
+    input_data: str
+        The str of moves to make
+            ^v^v^v^v^v
+
+    Returns
+    -------
+    len(output_houses_delivered): int
+    """
+    output_houses_delivered = ['[0, 0]']
+    location_santa = [0, 0]
+    location_zanta = [0, 0]
+    turn_tracker = 'S'
+
+    for move in input_data:
+        # Calculate Move and outcome
+        if move == '>':
+            if turn_tracker == 'S':
+                location_santa[1] += 1
+            elif turn_tracker == 'Z':
+                location_zanta[1] += 1
+        elif move == '<':
+            if turn_tracker == 'S':
+                location_santa[1] -= 1
+            elif turn_tracker == 'Z':
+                location_zanta[1] -= 1
+        elif move == '^':
+            if turn_tracker == 'S':
+                location_santa[0] += 1
+            elif turn_tracker == 'Z':
+                location_zanta[0] += 1
+        elif move == 'v':
+            if turn_tracker == 'S':
+                location_santa[0] -= 1
+            elif turn_tracker == 'Z':
+                location_zanta[0] -= 1
+
+        # Track visited locations
+        if turn_tracker == 'S':
+            if f'{location_santa}' not in output_houses_delivered:
+                output_houses_delivered.append(f'{location_santa}')
+        elif turn_tracker == 'Z':
+            if f'{location_zanta}' not in output_houses_delivered:
+                output_houses_delivered.append(f'{location_zanta}')
+
+        # Swap to next "Santa"
+        if turn_tracker == 'S':
+            turn_tracker = 'Z'
+        elif turn_tracker == 'Z':
+            turn_tracker = 'S'
+
+    return len(output_houses_delivered)
 
 
 if __name__ == "__main__":
+    # Read input from disk cache
     path_inputs = Path(__file__).parent / 'inputs' / f'{Path(__file__).stem}_input.txt'
+
+    # Parse input into usable format
     with path_inputs.open('r') as f:
-        inputData = f.read()
+        input_data = f.read()
 
     print('Calculating Solutions...')
-    print(f'Solution 01: {calculate(inputData)}')
-    print(f'Solution 02: {calculate(inputData,True)}')
+    print(f'Part 01: {part_one(input_data)}')
+    print(f'Part 02: {part_two(input_data)}')
