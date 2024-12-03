@@ -19,8 +19,6 @@ def part_one(input_data: list) -> dict:
     Returns
     -------
     wires_solved: dict
-        magic: True
-            The value of each wire after overiding b with a and recalculating
     """
 
     # Generate wires data structure
