@@ -11,10 +11,7 @@ def part_one(input_data: list) -> int:
     input_data: list
         List of strings containing the following elements:
             double-quoted string literals: "abc"
-            escape sequences:
-                \\ (which represents a single backslash)
-                \" (which represents a lone double-quote character)
-                \ x plus two hexadecimal characters (which represents a single character with that ASCII code)
+            escape sequences
 
     Returns
     -------
@@ -52,10 +49,7 @@ def part_two(input_data: list) -> int:
     input_data: list
         List of strings containing the following elements:
             double-quoted string literals: "abc"
-            escape sequences:
-                \\ (which represents a single backslash)
-                \" (which represents a lone double-quote character)
-                \ x plus two hexadecimal characters (which represents a single character with that ASCII code)
+            escape sequences
 
     Returns
     -------
